@@ -2,5 +2,6 @@
 
 
 - ⚡ Fun fact: 
--->
-you can open the code in visual studio code 
+-->>(23*23²³)²³
+are the chance two password are the same mathematicaly that's infinity 
+
