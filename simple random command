@@ -1,5 +1,7 @@
 import random 
 lists = [ 'adam' , 'john', 'ai ']
+###### you can add or remove anything from list dont forget ""
 random_number = random.randint(0,2)
-computer_pick3 = lists[random_number]
-print(computer_pick3)
+#always add or remove number in the random range like if i add another name in list i will change 2 to 3 and so on 
+computer_pick = lists[random_number]
+print(computer_pick)
