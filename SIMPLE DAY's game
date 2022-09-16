@@ -1,0 +1,12 @@
+import random
+Weekdays = ["Monday","Tuesday","Wednesday" ,"Thursday" ,"Friday"]
+random_number = random.randint(0,5)
+computer_pick3 = Weekdays[random_number]
+user = input('please choose a day ')
+if computer_pick3 != user:
+    print('wrong guess try again')
+    print(computer_pick3)
+else :
+    print('you won !!')
+    print(computer_pick3)
+   ####### 
