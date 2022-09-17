@@ -1,0 +1,20 @@
+print('hello')
+list1=input('please entre your name: ')
+list2= input('please entre your age: ')
+list3= input ('please entre your city: ')
+x = list1
+y = list2
+r = list3
+confirm=input('do you confirme: ')
+if confirm !='yes':
+    print('your data is not saved: ')
+print(list1+' your data is succsesfuly saved: ')
+question1=input('do you want to see your data: ')
+if question1=='yes':
+        print('your name is '+ x )
+        print('your age is '+ y )
+        print('you live in ' + r)
+        print('dont trust the web')
+if question1 != 'yes':
+        print('bye')
+        
