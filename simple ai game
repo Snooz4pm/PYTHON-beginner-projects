@@ -1,0 +1,55 @@
+
+print("hello what is your name?")
+name=input()
+print('it is good to meet you ' + name)
+print ("what is your age??")
+age=input()
+print(name+' your age is '+ age)
+print("where do you live ?")
+city=input()
+print(name +' you live in '+ city )
+print("what is your dream job ")
+job=input()
+print(name+' do you really want to work as a '+ job )
+question=input(" YES/NO ")
+if question.lower() =="yes":
+    print ("okay! ")
+else:
+    print('bye')
+    quit()
+print(name + ' is your age ?? ' + age + ' YES/NO' )
+confirmation=input()
+if confirmation.lower() !="yes":
+    print('try later')
+    quit()
+
+print("welcome to the matrix")
+question=input(" red or blue ")
+if question.lower() =="red":
+    print ("okay let's play! ")
+else:
+    print('you can always be thinner')
+    quit()
+print(name + ' you are the chosen one' )
+question=input("do you like your name ")
+if question.lower() != "no":
+  print('fuck this stupid name that they call you')
+else:
+    print('neo you real age is not ' + age )
+    print('its 500 YEARS')
+print("do you agree?")
+question=input("yes/no ")
+if question.lower() =="yes":
+    print('welcome')
+else:
+    print('see you again')
+    print('to unlock the full power you must be cool ')
+    quit()
+question =input("do you want to know the lenght of your name ?? ")
+if question .lower() =="yes":
+    print("your name contains ") 
+    print(len(name))
+    print("letters")
+else:
+    print("bye")
+    quit()
