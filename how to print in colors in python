@@ -7,5 +7,5 @@ print(Fore.GREEN )
 print("your text")
 
 #if you dont have colorama that simple in the powershell type pip install colorama and that it 
-after print(Fore.'color that you choose') 
-the whole code will run in your color you can stop it by break or putting new print command with the collor that you want 
+#after print(Fore.'color that you choose') 
+#the whole code will run in your color you can stop it by break or putting new print command with the color that you want 
