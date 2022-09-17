@@ -1,7 +1,9 @@
 import random
+from colorama import Fore
 Weekdays = ["Monday","Tuesday","Wednesday" ,"Thursday" ,"Friday"]
 random_number = random.randint(0,5)
 computer_pick3 = Weekdays[random_number]
+print(Fore.GREEN )
 user = input('please choose a day ')
 if computer_pick3 != user:
     print('wrong guess try again')
