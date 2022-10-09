@@ -1,0 +1,60 @@
+import turtle
+import random
+cell = turtle.Turtle()
+cell_2 = turtle.Turtle()
+cell.color('red')
+cell_2.color('blue')
+cell_2.shape('classic')
+cell.shape('classic')
+cell.speed(100000)
+cell_2.speed(100000)
+cell_3=turtle.Turtle()
+cell_3.color('green')
+cell_4 =turtle.Turtle()
+cell_4.color('brown')
+cell_5 =turtle.Turtle()
+cell_5.color('black')
+while True:
+ cell_mouvment_list=["forward","left","right"]
+ random_cell_pick = random.randint(0,2)
+ cell_mouvment_pick =cell_mouvment_list[random_cell_pick]
+ #random_cell_2_pick = random.randint(0,2)
+ #cell_2_mouvment_pick =cell_mouvment_list[random_cell_2_pick]
+
+ if cell_mouvment_pick == "forward":
+        cell.forward(20)
+        
+        cell_4.forward(5)
+        cell_5.forward(2)
+        #cell_6.forward(4)
+        cell_2.forward(15) 
+        
+        cell_3.forward(10)
+        
+ if cell_mouvment_pick == "left":
+        cell.left(180)
+        
+        
+        cell_4.left(90)
+        cell_5.left(90)
+        cell_2.left(90)
+       
+        cell_3.left(90)
+    
+        #cell_6.forward(90)
+
+    
+
+ if cell_mouvment_pick =="right":
+        cell.right(180)
+        
+        
+        cell_4.right(90)
+        cell_5.right(90)
+        cell_2.right(90)
+        
+        cell_3.right(90)
+        
+
+    
+ 
