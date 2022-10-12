@@ -1,0 +1,11 @@
+
+from plyer import notification
+
+
+while True:
+    notification.notify(
+        title = 'your hacked',
+        message='SnOOOZ4PM GOT YOU',
+        app_icon=None,
+        timeout=2,
+    )
