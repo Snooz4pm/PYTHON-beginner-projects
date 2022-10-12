@@ -1,0 +1,34 @@
+import random
+from colorama import Fore 
+print(Fore.GREEN)
+wallet = 500
+while True:
+    choices = ['1',"2","3"]
+    random_pick = random.randint(0,0)
+    computer_pick = choices[random_pick]
+    play = input('do you want to bet')
+    if play.lower()== 'y':
+        bet = 100
+        wallet1 =wallet -bet
+    print('you will bet with this amount ')
+    print(bet)
+    print('your wallet have ')
+    print(wallet1)
+    game=input('choose a number from 1 TO 3')
+    if game == computer_pick:
+      win = bet*2
+      wallet=wallet1+win
+      print('you won !!')
+      print(win)
+      print('your wallet have ')
+      print(wallet)
+            
+    elif game != computer_pick:
+        wallet = wallet - bet 
+        print('you lost ')
+        print('you have ')
+        print(wallet1)
+    if wallet == 0 :
+        print('you have no more money')
+        break
+            
