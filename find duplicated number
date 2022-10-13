@@ -1,0 +1,17 @@
+
+import random
+numbers = ['1','2','8','8',"5","6",]
+while True:
+    finder_logic = random.randint(0,5)
+    finder_logic2=random.randint(0,5)
+    rabbit = numbers[finder_logic]
+    turtle=numbers[finder_logic2]
+    if finder_logic == finder_logic2:
+        finder_logic2=random.randint(3,5)
+    else:
+        if turtle==rabbit:
+            print('the duplicated is number is  ' ,turtle)
+            break
+        if turtle != rabbit:
+            print('no duplication found ')
+    
