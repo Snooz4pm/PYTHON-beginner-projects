@@ -10,7 +10,7 @@ while True:
         finder_logic2=random.randint(3,5)
     else:
         if turtle==rabbit:
-            print('the duplicated is number is  ' ,turtle)
+            print('the duplicated  number is  ' ,turtle)
             break
         if turtle != rabbit:
             print('no duplication found ')
