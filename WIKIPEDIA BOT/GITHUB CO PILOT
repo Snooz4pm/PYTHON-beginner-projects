@@ -1,0 +1,46 @@
+import wikipedia
+#build a bot to get new articles from wikipedia
+def get_random_article():
+    return wikipedia.random(pages=1)
+#build a bot to print the article
+def print_article(article):
+    print(article)
+#build a bot to get the summary of the article
+def get_summary(article):
+    return wikipedia.summary(article)
+#build a bot to print the summary
+def print_summary(summary):
+    print(summary)
+#build a bot to get the url of the article
+def get_url(article):
+    return wikipedia.page(article).url
+#build a bot to print the url
+def print_url(url):
+    print(url)
+#build a bot to get the images of the article
+def get_images(article):
+    return wikipedia.page(article).images
+#build a bot to print the images
+def print_images(images):
+    print(images)
+#build a bot to get the links of the article
+def get_links(article):
+    return wikipedia.page(article).links
+#build a bot to print the links
+def print_links(links):
+    print(links)
+#run the programme
+def main():
+    article = get_random_article()
+    print_article(article)
+    summary = get_summary(article)
+    print_summary(summary)
+    url = get_url(article)
+    print_url(url)
+    images = get_images(article)
+    print_images(images)
+    links = get_links(article)
+    print_links(links)
+if __name__ == '__main__':
+    main()
+            
