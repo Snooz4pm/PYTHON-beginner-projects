@@ -1,0 +1,87 @@
+import sys
+import os
+import pytube
+import pytube.exceptions
+import pytube.cli
+import pytube.request
+import pytube.extract
+
+#with pytube build an ai that will find the best video from youtube and then download it
+#and then download it
+
+
+#this function will return the list of videos
+def get_videos(topic):
+    videos = pytube.search(topic)
+    return videos
+
+
+#this function will return the url of the video
+def get_url(video):
+    url = pytube.YouTube(video).url
+    return url
+#this function will give the user option to download or no
+def download_video(video):
+    print("Do you want to download the video?")
+    print("1. Yes")
+    print("2. No")
+    choice = int(input("Enter your choice: "))
+    if choice == 1:
+        video.download()
+    elif choice == 2:
+        pass
+    else:
+        print("Invalid choice")
+        sys.exit()
+#this function will return the video
+def get_video(videos):
+    print("Choose the video you want to download from the list below")
+    for i in range(len(videos)):
+        print(str(i+1)+". "+videos[i])
+    choice = int(input("Enter the number of the video you want to download: "))
+    return videos[choice-1]
+#this function will return the title of the video
+def get_title(video):
+    title = pytube.YouTube(video).title
+    return title
+#this function will return the length of the video
+def get_length(video):
+    length = pytube.YouTube(video).length
+    return length
+#this function will return the rating of the video
+def get_rating(video):
+    rating = pytube.YouTube(video).rating
+    return rating
+#this function will return the views of the video
+def get_views(video):
+    views = pytube.YouTube(video).views
+    return views
+#this function will return the description of the video
+def get_description(video):
+    description = pytube.YouTube(video).description
+    return description
+#run the code
+def main():
+    topic = input("Enter the topic you want to download: ")
+    videos = get_videos(topic)
+    if len(videos) == 0:
+        print("No videos found")
+        sys.exit()
+    elif len(videos) == 1:
+        video = videos[0]
+    else:
+        video = get_video(videos)
+    title = get_title(video)
+    length = get_length(video)
+    rating = get_rating(video)
+    views = get_views(video)
+    description = get_description(video)
+    print("Title: "+title)
+    print("Length: "+str(length))
+    print("Rating: "+str(rating))
+    print("Views: "+str(views))
+    print("Description: "+description)
+    download_video(video)
+    print("Downloaded successfully")
+main()
+
