@@ -1,0 +1,75 @@
+
+# import the necessary packages
+from sklearn.neural_network import MLPClassifier
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
+from sklearn import datasets
+import numpy as np
+import matplotlib.pyplot as plt
+
+# grab the MNIST dataset (if this is your first time running this
+# script, the download may take a minute -- the 55MB MNIST dataset
+# will be downloaded)
+print("[INFO] downloading MNIST...")
+dataset = datasets.fetch_openml('mnist_784')
+data = dataset.data.astype("float")
+data = (data - data.min()) / (data.max() - data.min())
+print("[INFO] samples: {}, dim: {}".format(data.shape[0], data.shape[1]))
+
+# construct the train/test split (75% for training, 25% for testing)
+(trainX, testX, trainY, testY) = train_test_split(data, dataset.target, test_size=0.25)
+
+# now, let's take 10% of the training data and use that for validation
+(trainX, valX, trainY, valY) = train_test_split(trainX, trainY, test_size=0.1)
+
+# encode the labels as integers
+le = LabelEncoder()
+le.fit(trainY)
+trainY = le.transform(trainY)
+testY = le.transform(testY)
+valY = le.transform(valY)
+
+# train the neural network
+print("[INFO] training network...")
+nn = MLPClassifier(activation="relu", solver="adam",
+	max_iter=1000, random_state=42,
+	hidden_layer_sizes=(256,))
+nn.fit(trainX, trainY)
+
+# evaluate the neural network
+print("[INFO] evaluating network...")
+predictions = nn.predict(testX)
+print(classification_report(testY, predictions))
+
+# now that our neural network has been trained, let's
+# check out its predictions on the validation set
+predictions = nn.predict(valX)
+print("validation set accuracy: {:.2f}%".format(
+	(np.mean(predictions == valY)) * 100))
+
+# plot the training loss and accuracy
+N = np.arange(0, 20)
+plt.style.use("ggplot")
+plt.figure()
+plt.plot(N, nn.loss_curve_, label="Training Loss")
+plt.title("Training Loss")
+plt.xlabel("Epoch #")
+plt.ylabel("Loss")
+plt.legend(loc="upper right")
+plt.savefig("loss_curve.png")
+
+# plot the validation loss and accuracy
+plt.style.use("ggplot")
+plt.figure()
+plt.plot(N, nn.validation_scores_, label="Validation Loss")
+plt.title("Validation Loss")
+plt.xlabel("Epoch #")
+plt.ylabel("Loss")
+plt.legend(loc="upper right")
+plt.savefig("validation_curve.png")
+
+# evaluate the network
+print("[INFO] evaluating network...")
+predictions = nn.predict(testX)
+print(classification_report(testY, predictions))
