@@ -1,0 +1,35 @@
+user=input("Enter the brainfuck code: ")
+def main():
+    #this is the main function
+    #this is the list of commands
+    commands =[">","<","+","-",".",",","[","]"]
+    #this is the code that is outputted
+    code = user
+    #this is the loop that goes through the code
+    if user == "":
+        print("Please enter some code")
+    else:
+        for i in code:
+            if i in commands:
+                if i == ">":
+                    print("pointer += 1")
+                elif i == "<":
+                    print("pointer -= 1")
+                elif i == "+":
+                    print("memory[pointer] += 1")
+                elif i == "-":
+                    print("memory[pointer] -= 1")
+                elif i == ".":
+                    print("print(chr(memory[pointer]))")
+                elif i == ",":
+                    print("memory[pointer] = ord(input())")
+                elif i == "[":
+                    print("while memory[pointer] != 0:")
+                elif i == "]":
+                    print("pass")
+            else:
+                print("Please enter a valid brainfuck code")
+                break
+main()
+
+    
