@@ -1,0 +1,49 @@
+from doctest import OutputChecker
+import sys
+code = input('Enter code: ')
+
+
+def build(commands):
+	#get the commands from the user
+	#commands = sys.argv[1]
+	commands = list(commands)
+	#create some variables
+	array = [0]
+	ptr = 0
+	output = ''
+	#the brainfuck loop
+	while ptr < len(commands):
+            if commands[ptr] == '+':
+                array[0] += 1
+            elif commands[ptr] == '-':
+                array[0] -= 1
+            elif commands[ptr] == '>':
+                ptr += 1
+                if ptr == len(array):
+                    array.append(0)
+            elif commands[ptr] == '<':
+                ptr -= 1
+            elif commands[ptr] == '.':
+                output += chr(array[0])
+            elif commands[ptr] == ',':
+                array[0] = ord(input('Enter a character: '))
+            elif commands[ptr] == '[':
+                if array[0] == 0:
+                    while commands[ptr] != ']':
+                        ptr += 1
+            elif commands[ptr] == ']':
+                if array[0] != 0:
+                    while commands[ptr] != '[':
+                        ptr -= 1
+            elif commands[ptr] == '#':
+                print(array)
+            ptr += 1
+            if commands[ptr] == ' ':
+                pass
+            else:
+                print('Invalid character: ' + commands[ptr])
+                break
+
+#run the program
+build(code)
+
