@@ -1,0 +1,97 @@
+import random
+
+# Define the deck of cards
+deck = [
+    '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A',
+    '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A',
+    '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A',
+    '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'
+]
+
+# Define the values of the cards
+card_values = {
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9,
+    '10': 10,
+    'J': 10,
+    'Q': 10,
+    'K': 10,
+    'A': 11
+}
+
+# Define a function to deal a card
+def deal_card():
+    card = random.choice(deck)
+    return card
+
+# Define a function to calculate the value of a hand
+def calculate_hand(hand):
+    value = sum([card_values[card] for card in hand])
+    num_aces = hand.count('A')
+    while num_aces > 0 and value > 21:
+        value -= 10
+        num_aces -= 1
+    return value
+
+# Define the main function for the game
+def play_game():
+    # Deal the initial hands
+    player_hand = [deal_card(), deal_card()]
+    dealer_hand = [deal_card(), deal_card()]
+
+    # Play the player's hand
+    while True:
+        print("Player's hand:", player_hand)
+        print("Dealer's hand:", [dealer_hand[0], 'X'])
+        player_value = calculate_hand(player_hand)
+        if player_value == 21:
+            print("Player wins!")
+            return
+        elif player_value > 21:
+            print("Player busts!")
+            return
+        else:
+            choice = input("Hit or stand? ")
+            if choice.lower() == 'hit':
+                player_hand.append(deal_card())
+            else:
+                break
+
+    # Play the dealer's hand
+    while True:
+        print("Player's hand:", player_hand)
+        print("Dealer's hand:", dealer_hand)
+        dealer_value = calculate_hand(dealer_hand)
+        if dealer_value == 21:
+            print("Dealer wins!")
+            return
+        elif dealer_value > 21:
+            print("Dealer busts!")
+            return
+        elif dealer_value >= 17:
+            break
+        else:
+            dealer_hand.append(deal_card())
+
+    # Determine the winner
+    player_value = calculate_hand(player_hand)
+    dealer_value = calculate_hand(dealer_hand)
+    if player_value > dealer_value:
+        print("Player wins!")
+    elif player_value < dealer_value:
+        print("Dealer wins!")
+    else:
+        print("Tie!")
+
+# Play the game
+while True:
+    play_game()
+    again = input("Play again? ")
+    if again.lower() != 'yes':
+        break
